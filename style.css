@@ -149,6 +149,14 @@ Content
     font-size: 1.3rem;
     margin-right: 8px;
 }
+.long {
+    position: relative;
+    bottom: 16px;
+    left: 22px;
+}
+.location-text {
+    text-align: center;
+}
 
 .extra-details {
     background: rgba(255, 255, 255, 0.25);
@@ -159,7 +167,7 @@ Content
 
     margin-top: -5rem;
     padding: 1rem;
-    width: 100%;
+    width: 99%;
     height: 10rem;
 
     display: grid;
@@ -201,4 +209,12 @@ article i {
 .details p {
     font-size: 0.75rem;
     margin: 0;
+}
+.feels {
+    position: relative;
+    right: 15px;
+}
+.humidity {
+    position: relative;
+    right: 15px;
 }

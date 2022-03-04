@@ -24,7 +24,7 @@
                 <!-- Input Box -->
                 <div class="input-box">
                     <form id="form">
-                        <input type="text" class="search" placeholder="London" spellcheck="false" required>
+                        <input type="text" class="search" placeholder="Eg. London" spellcheck="false" required>
                     </form>
                 </div>
                 <!-- Location-Btn -->
@@ -36,17 +36,17 @@
             <div class="content">
 
                 <!-- Weather Icon -->
-                <img src="icons/animated/cloudy-day-1.svg" alt="weather-icon">
+                <img src="icons/113-day.svg" class="weather-icon" alt="icon">
                 <!-- Temperature -->
-                <div class="temp">
-                    <span class="number">13</span>
+                <div class="temp main">
+                    <span class="number">0</span>
                     <span class="deg">°</span>C
                 </div>
                 <!-- Info-Text -->
-                <div class="weather-text">Cloudy Day</div>
+                <div class="weather-text">Maybe Sunny Day</div>
                 <div class="location">
                     <i class="fa-solid fa-map-location-dot"></i>
-                    <span class="location-text">Someplace, World</span>
+                    <span class="location-text">Enter your location!</span>
                 </div>
 
                 <!-- Extra Details -->
@@ -56,7 +56,7 @@
                         <i class="fa-solid fa-temperature-three-quarters"></i>
                         <div class="details">
                             <div class="temp">
-                                <span class="number">13</span>
+                                <span class="number">0</span>
                                 <span class="deg">°</span>C
                             </div>
                             <p>Feels like</p>
@@ -66,22 +66,22 @@
                     <article class="humidity">
                         <i class="fa-solid fa-droplet"></i>                        
                         <div class="details">
-                            <span class="number">80</span>
+                            <span class="number">0</span>
                             <span class="unit">%</span>
                             <p>Humidity</p>
                         </div>
                     </article>
-
+                    <!-- Wind Speed -->
                     <article class="wind-speed">
                         <i class="fa-solid fa-wind"></i>                        
                         <div class="details">
-                            <span class="number">20</span>
+                            <span class="number">0</span>
                             <span class="unit">km/hr</span>
                             <p>Wind</p>
                         </div>
                     </article>
-
-                    <article class="wind-speed">
+                    <!-- Precipitation -->
+                    <article class="precipitation">
                         <i class="fa-solid fa-cloud-showers-heavy"></i>                  
                         <div class="details">    
                             <span class="number">0</span>
@@ -98,6 +98,6 @@
     </main>
 
     <!-- Script -->
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>
