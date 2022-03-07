@@ -24,7 +24,11 @@
                 <!-- Input Box -->
                 <div class="input-box">
                     <form id="form">
-                        <input type="text" class="search" placeholder="Eg. London" spellcheck="false" required>
+                        <input type="text" list="search" class="search" placeholder="Eg. London" spellcheck="false" required>
+                        <div class="cities-data">
+                            <datalist id="search">
+                            </datalist>
+                        </div>
                     </form>
                 </div>
                 <!-- Location-Btn -->

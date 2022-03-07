@@ -17,6 +17,7 @@ import { setIcon } from "./icons.js";
 // ==== Selections ==== //
 const form = getElements("#form");
 const search = getElements(".search");
+const dataList = getElements("datalist");
 const locationBtn = getElements(".location-btn");
 const content = getElements(".content");
 
@@ -33,6 +34,7 @@ const windNum = getElements(".wind-speed .number");
 const precipitationNum = getElements(".precipitation .number");
 
 let backBtnHidden = false;
+let citiesArray = [];
 
 // ==== API ==== //
 const apiKey = "95b6fc9a2ecd4b5581b31840222502";
@@ -53,7 +55,7 @@ function updateDOM(data) {
     let nameCountry = `${name}, ${country}`;
     let hours = localtime.substr(localtime.length - 5, 2);
 
-    if (nameCountry.length > 22) {
+    if (nameCountry.length > 23) {
         mapLocationIcon.classList.add("long");
         content.style.padding = "3.10rem 1rem";
     } else {
@@ -77,6 +79,30 @@ function updateDOM(data) {
 
     console.log();
 }
+
+// ==== Access Cities JSON File ==== //
+async function fetchCities() {
+    const response = await fetch(
+        "https://raw.githubusercontent.com/lutangar/cities.json/master/cities.json"
+    );
+    citiesArray = await response.json();
+
+    updateSearch(citiesArray);
+}
+console.log(dataList);
+// Update the search box
+function updateSearch(arr) {
+    const itemEl = arr
+        .map((item) => {
+            return `<option value="${item.name}">${item.name}</option>`;
+        })
+        .join("");
+
+    dataList.innerHTML = itemEl;
+}
+
+// on Load
+fetchCities();
 
 // ==== Geolocation API ==== //
 // onSuccess
@@ -103,6 +129,18 @@ form.addEventListener("submit", (e) => {
     if (city) {
         fetchData(URL);
     }
+});
+
+search.addEventListener("change", (e) => {
+    e.preventDefault();
+
+    const city = search.value;
+    const URL = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${search.value}&aqi=no`;
+
+    if (city) {
+        fetchData(URL);
+    }
+    search.value = "";
 });
 
 locationBtn.addEventListener("click", () => {
