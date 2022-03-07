@@ -35,6 +35,7 @@ const precipitationNum = getElements(".precipitation .number");
 
 let backBtnHidden = false;
 let citiesArray = [];
+let cityName = '';
 
 // ==== API ==== //
 const apiKey = "95b6fc9a2ecd4b5581b31840222502";
@@ -55,7 +56,7 @@ function updateDOM(data) {
     let nameCountry = `${name}, ${country}`;
     let hours = localtime.substr(localtime.length - 5, 2);
 
-    if (nameCountry.length > 23) {
+    if (nameCountry.length > 27) {
         mapLocationIcon.classList.add("long");
         content.style.padding = "3.10rem 1rem";
     } else {
@@ -76,8 +77,6 @@ function updateDOM(data) {
     humidityNum.textContent = humidity;
     windNum.textContent = wind_kph;
     precipitationNum.textContent = precip_mm;
-
-    console.log();
 }
 
 // ==== Access Cities JSON File ==== //
@@ -86,15 +85,16 @@ async function fetchCities() {
         "https://raw.githubusercontent.com/lutangar/cities.json/master/cities.json"
     );
     citiesArray = await response.json();
+    console.log(citiesArray[50]);
 
     updateSearch(citiesArray);
 }
-console.log(dataList);
+
 // Update the search box
 function updateSearch(arr) {
     const itemEl = arr
         .map((item) => {
-            return `<option value="${item.name}">${item.name}</option>`;
+            return `<option value="${item.name}">${item.country}</option>`;
         })
         .join("");
 
